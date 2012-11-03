@@ -1,6 +1,7 @@
 (ns bookshelf.views.books
   (:require [bookshelf.views.common :as common])
   (:use [noir.core :only [defpage]]
+        [noir.response :only [content-type]]
         [hiccup.element :only [link-to]]))
 
 (def books
@@ -35,3 +36,12 @@
 (defpage "/books" []
   (common/layout
     (list-books)))
+
+(defn get-file [id]
+  nil)
+
+(defn- ctype [format]
+  (if (= "pdf" format) "application/pdf" "text/plain"))
+
+(defpage "/books/:id/:format" {:keys [id format]}
+  (content-type (ctype format) (java.io.ByteArrayInputStream. (get-file id))))
