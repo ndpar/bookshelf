@@ -8,4 +8,3 @@
         port (Integer. (get (System/getenv) "PORT" "8080"))]
     (server/start port {:mode mode
                         :ns 'bookshelf})))
-

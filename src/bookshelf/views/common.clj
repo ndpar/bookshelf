@@ -3,10 +3,10 @@
         [hiccup.page :only [include-css html5]]))
 
 (defpartial layout [& content]
-            (html5
-              [:head
-               [:title "bookshelf"]
-               (include-css "/css/reset.css")]
-              [:body
-               [:div#wrapper
-                content]]))
+  (html5
+    [:head
+     [:title "Bookshelf"]
+     (include-css "/css/reset.css")]
+    [:body
+     [:div#wrapper
+      content]]))
