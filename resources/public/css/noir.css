@@ -1,0 +1,17 @@
+body {
+    background: #2a2b2b;
+    color: #d1d9e1;
+    background: url('/img/bg.png');
+    padding: 60px 60px;
+    font-family: 'Helvetica Neue',Helvetica,Verdana;
+}
+a {
+    text-decoration: none;
+    color: #d1d9e1;
+}
+a:hover {
+    color: #6bffbd;
+}
+h1 {
+    color: #6bffbd;
+}

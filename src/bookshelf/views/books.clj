@@ -24,6 +24,7 @@
 
 (defpage "/books" []
   (common/layout
+    [:h1 "Books"]
     (list-books)))
 
 (defn- ctype [format]
