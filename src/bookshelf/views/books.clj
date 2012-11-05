@@ -3,7 +3,7 @@
             [bookshelf.views.common :as common])
   (:use [noir.core :only [defpage]]
         [noir.response :only [content-type]]
-        [hiccup.element :only [link-to]]))
+        [hiccup.element :only [link-to javascript-tag]]))
 
 (defn- list-books []
   [:table.tablesorter {:id "bookTable"}
@@ -21,11 +21,11 @@
             [:td (:year book)]
             [:td (link-to (clojure.string/join "/" ["/books" (:id book) (:format book)])
                           (:format book))]]))])
-
 (defpage "/books" []
   (common/layout
-    [:h1 "Books"]
-    (list-books)))
+    :header [(javascript-tag "$(document).ready(function() {$(\"#bookTable\").tablesorter();});")]
+    :content [[:h1 "Books"]
+              (list-books)]))
 
 (defn- ctype [format]
   (if (= "pdf" format) "application/pdf" "text/plain"))
