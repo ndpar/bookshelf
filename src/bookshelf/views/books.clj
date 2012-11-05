@@ -6,7 +6,7 @@
         [hiccup.element :only [link-to]]))
 
 (defn- list-books []
-  [:table
+  [:table.tablesorter {:id "bookTable"}
    [:thead
     [:tr
      [:th "Author"]
